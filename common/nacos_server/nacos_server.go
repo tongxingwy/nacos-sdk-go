@@ -239,7 +239,7 @@ func (server *NacosServer) refreshServerSrvIfNeed() {
 	}
 
 	var list []string
-	urlString := "http://" + server.endpoint + "/nacos/serverlist"
+	urlString := "https://" + server.endpoint + "/nacos/serverlist"
 	result := server.httpAgent.RequestOnlyResult(http.MethodGet, urlString, nil, server.timeoutMs, nil)
 	list = strings.Split(result, "\n")
 	log.Printf("[info] http nacos server list: <%s> \n", result)
