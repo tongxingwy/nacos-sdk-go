@@ -68,7 +68,7 @@ func (server *NacosServer) callConfigServer(api string, params map[string]string
 
 	signHeaders := getSignHeaders(params, newHeaders)
 
-	url := "http://" + curServer + contextPath + api
+	url := "https://" + curServer + contextPath + api
 	headers := map[string][]string{}
 	for k, v := range newHeaders {
 		if k != "accessKey" && k != "secretKey" {
@@ -117,7 +117,7 @@ func (server *NacosServer) callServer(api string, params map[string]string, meth
 		contextPath = constant.WEB_CONTEXT
 	}
 
-	url := "http://" + curServer + contextPath + api
+	url := "https://" + curServer + contextPath + api
 	headers := map[string][]string{}
 	headers["Client-Version"] = []string{constant.CLIENT_VERSION}
 	headers["User-Agent"] = []string{constant.CLIENT_VERSION}
@@ -239,7 +239,7 @@ func (server *NacosServer) refreshServerSrvIfNeed() {
 	}
 
 	var list []string
-	urlString := "http://" + server.endpoint + "/nacos/serverlist"
+	urlString := "https://" + server.endpoint + "/nacos/serverlist"
 	result := server.httpAgent.RequestOnlyResult(http.MethodGet, urlString, nil, server.timeoutMs, nil)
 	list = strings.Split(result, "\n")
 	log.Printf("[info] http nacos server list: <%s> \n", result)

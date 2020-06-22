@@ -93,7 +93,7 @@ func (ac *AuthClient) login(server constant.ServerConfig) (bool, error) {
 			contextPath = contextPath[0 : len(contextPath)-1]
 		}
 
-		reqUrl := "http://" + server.IpAddr + ":" + strconv.FormatInt(int64(server.Port), 10) + contextPath + "/v1/auth/users/login"
+		reqUrl := "https://" + server.IpAddr + ":" + strconv.FormatInt(int64(server.Port), 10) + contextPath + "/v1/auth/users/login"
 
 		queryInfo := ""
 

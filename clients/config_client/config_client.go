@@ -335,7 +335,7 @@ func (client *ConfigClient) putLocalConfig(config vo.ConfigParam) {
 }
 
 func (client *ConfigClient) buildBasePath(serverConfig constant.ServerConfig) (basePath string) {
-	basePath = "http://" + serverConfig.IpAddr + ":" +
+	basePath = "https://" + serverConfig.IpAddr + ":" +
 		strconv.FormatUint(serverConfig.Port, 10) + serverConfig.ContextPath + constant.CONFIG_PATH
 	return
 }
